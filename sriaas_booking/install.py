@@ -33,7 +33,7 @@ def _make_patient_fields():
             # --- DETAILS TAB (no new Tab Break; placed after core 'first_name') ---
             {
                 "fieldname": "sr_medical_department",
-                "label": "Medical Department",
+                "label": "Department",
                 "fieldtype": "Link",
                 "options": "Medical Department",
                 "insert_after": "patient_name"
