@@ -550,7 +550,6 @@ def _setup_draft_invoice_tab():
 
             # --- Advance Payment ---
             {"fieldname": "sr_advance_payment_sb", "label": "Advance Payment","fieldtype": "Section Break", "collapsible": 1,"insert_after": "sr_order_items"},
-            {"fieldname": "sr_pe_order_items", "label": "PE Order Items","fieldtype": "Table", "options": "PE Order Item","insert_after": "sr_advance_payment_sb"},
             {"fieldname": "sr_pe_mode_of_payment", "label": "Mode of Payment","fieldtype": "Link", "options": "Mode of Payment","insert_after": "sr_pe_order_items"},
             {"fieldname": "sr_pe_paid_amount", "label": "Paid Amount","fieldtype": "Currency","insert_after": "sr_pe_mode_of_payment"},
 
