@@ -1,5 +1,5 @@
-app_name = "sriaas_booking"
-app_title = "Sriaas Booking"
+app_name = "sriaas_booking"          # python package name
+app_title = "Sriaas Booking"         # human label
 app_publisher = "Jitendra Kumar"
 app_description = "An app to automate sriaas workspace and flows"
 app_email = "webdevelopersriaas@gmail.com"
