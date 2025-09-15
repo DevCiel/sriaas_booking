@@ -8,6 +8,8 @@ app_license = "mit"
 after_install = "sriaas_booking.install.after_install"
 after_migrate = "sriaas_booking.install.after_migrate"
 
+before_uninstall = "sriaas_booking.uninstall.before_uninstall"
+
 # Apps
 # ------------------
 
