@@ -1,0 +1,45 @@
+{
+  "doctype": "DocType",
+  "name": "SR Patient Invoice View",
+  "module": "Sriaas Booking",
+  "custom": 0,
+  "istable": 1,
+  "editable_grid": 1,
+  "issingle": 0,
+  "track_changes": 0,
+  "field_order": [
+    "sr_invoice_no",
+    "sr_posting_date",
+    "sr_grand_total",
+    "sr_outstanding"
+  ],
+  "fields": [
+    {
+      "fieldname": "sr_invoice_no",
+      "label": "Sales Invoice",
+      "fieldtype": "Link",
+      "options": "Sales Invoice",
+      "in_list_view": 1,
+      "reqd": 0
+    },
+    {
+      "fieldname": "sr_posting_date",
+      "label": "Posting Date",
+      "fieldtype": "Datetime",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "sr_grand_total",
+      "label": "Grand Total",
+      "fieldtype": "Currency",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "sr_outstanding",
+      "label": "Outstanding",
+      "fieldtype": "Currency",
+      "in_list_view": 1
+    }
+  ],
+  "permissions": []
+}

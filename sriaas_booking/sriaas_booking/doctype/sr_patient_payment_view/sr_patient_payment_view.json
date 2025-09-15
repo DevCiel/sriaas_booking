@@ -1,0 +1,44 @@
+{
+  "doctype": "DocType",
+  "name": "SR Patient Payment View",
+  "module": "Sriaas Booking",
+  "custom": 0,
+  "istable": 1,
+  "editable_grid": 1,
+  "issingle": 0,
+  "track_changes": 0,
+  "field_order": [
+    "sr_payment_entry",
+    "sr_posting_date",
+    "sr_paid_amount",
+    "sr_mode_of_payment"
+  ],
+  "fields": [
+    {
+      "fieldname": "sr_payment_entry",
+      "label": "Payment Entry",
+      "fieldtype": "Link",
+      "options": "Payment Entry",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "sr_posting_date",
+      "label": "Posting Date",
+      "fieldtype": "Datetime",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "sr_paid_amount",
+      "label": "Paid Amount",
+      "fieldtype": "Currency",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "sr_mode_of_payment",
+      "label": "Mode of Payment",
+      "fieldtype": "Data",
+      "in_list_view": 1
+    }
+  ],
+  "permissions": []
+}

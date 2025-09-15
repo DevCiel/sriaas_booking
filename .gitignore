@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+node_modules/
+dist/
+*.log
+*.sqlite3
+*.DS_Store
+
+# Frappe asset artifacts (if any)
+.sass-cache/
+public/js/*.map
+public/dist/
