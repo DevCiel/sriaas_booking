@@ -1,5 +1,4 @@
 from setuptools import setup, find_packages
-
 setup(
     name="sriaas_booking",
     version="0.1.0",

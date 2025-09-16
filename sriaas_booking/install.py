@@ -27,8 +27,8 @@ def _setup_everything():
     _ensure_sr_instructions()
     _ensure_sr_medication_template_item()
     _ensure_sr_medication_template()
-    _ensure_sr_delivery_type()
-    _ensure_sr_order_item()
+    # _ensure_sr_delivery_type()
+    # _ensure_sr_order_item()
 
     # 2) Core doctypes: add/adjust custom fields
     _make_patient_fields()
@@ -44,7 +44,7 @@ def _setup_everything():
     _setup_homeopathy_section()
     _setup_allopathy_section()
     _setup_instructions_section()
-    _setup_draft_invoice_tab()
+    # _setup_draft_invoice_tab()
 
     # 4) Housekeeping
     _apply_encounter_ui_customizations()
@@ -532,41 +532,40 @@ def _setup_instructions_section():
         ]
     }, ignore_validate=True)
 
-def _setup_draft_invoice_tab():
-    dt = "Patient Encounter"
-    expr = 'eval:doc.sr_encounter_type=="Order"'
+# def _setup_draft_invoice_tab():
+#     dt = "Patient Encounter"
+#     expr = 'eval:doc.sr_encounter_type=="Order"'
 
-    create_custom_fields({
-        dt: [
-            # Tab visible only for Encounter Type = Order
-            {"fieldname": "sr_draft_invoice_tab", "label": "Draft Invoice","fieldtype": "Tab Break", "insert_after": "notes_tab","depends_on": expr},
+#     create_custom_fields({
+#         dt: [
+#             # Tab visible only for Encounter Type = Order
+#             {"fieldname": "sr_draft_invoice_tab", "label": "Draft Invoice","fieldtype": "Tab Break", "insert_after": "notes_tab","depends_on": expr},
 
-            # Delivery Type (required only in Order context)
-            {"fieldname": "sr_delivery_type", "label": "Delivery Type","fieldtype": "Link", "options": "SR Delivery Type","insert_after": "sr_draft_invoice_tab","depends_on": expr,"mandatory_depends_on": expr},
+#             # Delivery Type (required only in Order context)
+#             {"fieldname": "sr_delivery_type", "label": "Delivery Type","fieldtype": "Link", "options": "SR Delivery Type","insert_after": "sr_draft_invoice_tab","depends_on": expr,"mandatory_depends_on": expr},
 
-            # --- Items List ---
-            {"fieldname": "sr_items_list_sb", "label": "Items List","fieldtype": "Section Break", "collapsible": 1,"insert_after": "sr_delivery_type"},
-            {"fieldname": "sr_order_items", "label": "Order Items","fieldtype": "Table", "options": "SR Order Item","insert_after": "sr_items_list_sb"},
+#             # --- Items List ---
+#             {"fieldname": "sr_items_list_sb", "label": "Items List","fieldtype": "Section Break", "collapsible": 1,"insert_after": "sr_delivery_type"},
+#             {"fieldname": "sr_order_items", "label": "Order Items","fieldtype": "Table", "options": "SR Order Item","insert_after": "sr_items_list_sb"},
 
-            # --- Advance Payment ---
-            {"fieldname": "sr_advance_payment_sb", "label": "Advance Payment","fieldtype": "Section Break", "collapsible": 1,"insert_after": "sr_order_items"},
-            {"fieldname": "sr_pe_mode_of_payment", "label": "Mode of Payment","fieldtype": "Link", "options": "Mode of Payment","insert_after": "sr_pe_order_items"},
-            {"fieldname": "sr_pe_paid_amount", "label": "Paid Amount","fieldtype": "Currency","insert_after": "sr_pe_mode_of_payment"},
+#             # --- Advance Payment ---
+#             {"fieldname": "sr_advance_payment_sb", "label": "Advance Payment","fieldtype": "Section Break", "collapsible": 1,"insert_after": "sr_order_items"},
+#             {"fieldname": "sr_pe_mode_of_payment", "label": "Mode of Payment","fieldtype": "Link", "options": "Mode of Payment","insert_after": "sr_pe_order_items"},
+#             {"fieldname": "sr_pe_paid_amount", "label": "Paid Amount","fieldtype": "Currency","insert_after": "sr_pe_mode_of_payment"},
 
-            # --- Payment Receipt ---
-            {"fieldname": "sr_payment_receipt_sb", "label": "Payment Receipt","fieldtype": "Section Break", "collapsible": 1,"insert_after": "sr_pe_paid_amount"},
-            {"fieldname": "sr_pe_payment_reference_no", "label": "Payment Reference No","fieldtype": "Data", "insert_after": "sr_payment_receipt_sb"},
-            {"fieldname": "sr_pe_payment_reference_date", "label": "Payment Reference Date","fieldtype": "Date", "insert_after": "sr_pe_payment_reference_no"},
-            {"fieldname": "sr_pe_payment_proof", "label": "Payment Proof","fieldtype": "Attach Image", "insert_after": "sr_pe_payment_reference_date"},
-        ]
-    }, ignore_validate=True)
+#             # --- Payment Receipt ---
+#             {"fieldname": "sr_payment_receipt_sb", "label": "Payment Receipt","fieldtype": "Section Break", "collapsible": 1,"insert_after": "sr_pe_paid_amount"},
+#             {"fieldname": "sr_pe_payment_reference_no", "label": "Payment Reference No","fieldtype": "Data", "insert_after": "sr_payment_receipt_sb"},
+#             {"fieldname": "sr_pe_payment_reference_date", "label": "Payment Reference Date","fieldtype": "Date", "insert_after": "sr_pe_payment_reference_no"},
+#             {"fieldname": "sr_pe_payment_proof", "label": "Payment Proof","fieldtype": "Attach Image", "insert_after": "sr_pe_payment_reference_date"},
+#         ]
+#     }, ignore_validate=True)
 
 def _apply_encounter_ui_customizations():
     dt = "Patient Encounter"
 
     # Collapse these sections
-    for f in ["sb_symptoms", "sb_test_prescription", "sb_procedures",
-              "rehabilitation_section", "section_break_33"]:
+    for f in ["sb_symptoms", "sb_test_prescription", "sb_procedures","rehabilitation_section", "section_break_33"]:
         collapse_field(dt, f, True)
 
     # Rename section_break_33 → "Review"
